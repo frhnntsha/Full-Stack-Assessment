@@ -1,0 +1,9 @@
+<form (submit)="registerUser()">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" [(ngModel)]="user.username" required /><br />
+  <input type="text" id="email" name="email" [(ngModel)]="user.email" required /><br />
+  <input type="text" id="phone" name="phone" [(ngModel)]="user.phone" required /><br />
+  <input type="text" id="skillsets" name="skillsets" [(ngModel)]="user.skillsets" required /><br />
+  <input type="text" id="hobby" name="hobby" [(ngModel)]="user.hobby" required /><br />
+  <button type="submit">Register</button>
+</form>
