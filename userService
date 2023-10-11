@@ -1,0 +1,51 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class UserService {
+  private baseUrl = '/api/users'; // Replace with your API endpoint
+
+  constructor(private http: HttpClient) {}
+
+  registerUser(user: any) {
+    return this.http.post(`${this.baseUrl}`, user);
+  }
+
+deleteUser(userId: number) {
+  this.userService.deleteUser(userId).subscribe(
+    (response) => {
+      console.log(response); // Handle the response, e.g., show a success message
+      // Optionally, you can update the user list or perform any other necessary actions after deletion.
+    },
+    (error) => {
+      console.error(error); // Handle errors, e.g., show an error message
+    }
+  );
+}
+
+updateUser() {
+  this.userService.updateUser(this.user).subscribe(
+    (response) => {
+      console.log(response); // Handle the response, e.g., show a success message
+      // Optionally, you can reset the form, update user details, or perform any other actions after updating.
+    },
+    (error) => {
+      console.error(error); // Handle errors, e.g., show an error message
+    }
+  );
+}
+
+retrieveUsers() {
+  this.userService.retrieveUsers().subscribe(
+    (users) => {
+      console.log(users); // Handle the retrieved users, e.g., store in a component property for rendering in the template.
+    },
+    (error) => {
+      console.error(error); // Handle errors, e.g., show an error message
+    }
+  );
+}
+
+}
