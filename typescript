@@ -1,0 +1,20 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { RegistrationComponent } from './registration/registration.component';
+import { DeletionComponent } from './deletion/deletion.component';
+import { UpdatingComponent } from './updating/updating.component';
+import { RetrievalComponent } from './retrieval/retrieval.component';
+
+const routes: Routes = [
+  { path: 'registration', component: RegistrationComponent },
+  { path: 'deletion', component: DeletionComponent },
+  { path: 'updating', component: UpdatingComponent },
+  { path: 'retrieval', component: RetrievalComponent },
+  { path: '', redirectTo: '/registration', pathMatch: 'full' },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
